@@ -220,16 +220,20 @@ snippet myfun
 	 *date:`strftime("%Y/%m/%d")`
 	 */
 snippet sql
-		return $this->db->query("")->result();
+		return $this->db->query("")->result(); 
 snippet q
-		echo "<pre>";var_dump($${1:});exit;${2}
+		echo "<pre>";var_dump($${1:});exit;${2} //打印调试
 snippet p
-		echo "<pre>";print_r($${1:});exit;${2}
+		echo "<pre>";print_r($${1:});exit;${2} //打印调试
 snippet l 
-		echo $this->db->last_query();exit;
+		echo $this->db->last_query();exit; //上次执行sql调试
 snippet w 
-		echo 123;exit;
+		echo 123;exit;//临时断句调试
 snippet 1 	
 	echojson(1,$${1:},'${2}');  
 snippet 0
-	echojson(0,'','${1}');  
+	echojson(0,'','${1}');
+snippet o
+	savelog(${1}); //临时日志调试
+snippet oo
+	$logs = ${1};$toppath= "/var/log/php-debug.log";  $Ts=fopen($toppath,"a+"); fputs($Ts,$logs."\r\n"); fclose($Ts); //临时日志调试
